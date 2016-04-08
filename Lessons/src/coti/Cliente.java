@@ -1,4 +1,4 @@
-package Coty;
+package coti;
 
 import java.util.ArrayList;
 
@@ -22,6 +22,8 @@ public class Cliente {
 		this.nombre = nombre;
 		this.edad = edad;
 	}
+	
+	
 		
 	public void Mostrar(){
 		System.out.println("Nombre: "+this.nombre);
