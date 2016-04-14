@@ -12,13 +12,10 @@ public class Compra {
 	private Float precioTotal;
 	private MetodoPago tipoDePago; 
 	
-	public Compra(){
+		
+	public Compra(MetodoPago tipoPago){
 		this.precioTotal= 0f;
 		this.listaProductos = new ArrayList<Producto>();
-	}
-	
-	public Compra(MetodoPago tipoPago){
-		this();
 		this.tipoDePago = tipoPago;
 		
 	}
