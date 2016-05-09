@@ -113,7 +113,7 @@ public class CotiTesting {
 		assertEquals(newDebitCard, newOrderWithDebitCard.getPayMethod());
 
 	//Given Shelf with a new product (testingProductDisc)
-		Shelf.addProduct(stockDeCoti, testingProductDisc);
+		assertTrue(Shelf.addProduct(stockDeCoti, testingProductDisc));
 		
 		
 	/*Should add a new product to the order. 
@@ -121,7 +121,6 @@ public class CotiTesting {
 	 * It will return true if it is successfully added to the Order.
 	 * it will return false: There is no item in Shelf.
 	 */ 
-		
 		assertTrue(newOrderWithCotiPayment.addProduct(stockDeCoti, testingProductDisc));
 	}
 	

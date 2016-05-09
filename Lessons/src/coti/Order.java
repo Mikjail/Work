@@ -45,10 +45,8 @@ public class Order {
 					this.productList.add(productToAdd);
 					System.out.println("Se Agrego "+productToAdd.getCantidad()+ " " + productToAdd.getDescripcion()+" al carrito de compras!");
 				}
-		
-			
-			return true;
-		}
+		}	
+		return true;
 	}
 		
 		System.out.println("No se pueden agregar items que no se encuentran en stock!");
