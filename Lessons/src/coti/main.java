@@ -1,11 +1,5 @@
 package coti;
 
-import coti.domain.ProductoConDesc;
-import coti.domain.ProductoSinDesc;
-import coti.domain.enums.eCereales;
-import coti.domain.enums.eGalletas;
-import coti.domain.enums.eGranos;
-
 public class main {
 
 	public static void main(String[] args) {
@@ -14,20 +8,20 @@ public class main {
 		
 		Cliente cliente1 = new Cliente("Juan",25);
 		Cliente cliente2 = new Cliente("Pedro", 10);
-	
+		Shelf shelfProducts = new Shelf();
 		//SE AGREGA STOCK A COTI
-		Stock.AgregarProducto(new ProductoConDesc(eCereales.Trigo,100));
-		Stock.AgregarProducto(new ProductoSinDesc(eGranos.Maiz,100));
-		Stock.AgregarProducto(new ProductoConDesc(eGalletas.Oreo,100));
+		Shelf.addProduct(shelfProducts, new ProductWithDiscount("Trigo",20, 100));
+		Shelf.addProduct(shelfProducts, new ProductWithoutDiscount("Maiz",30, 100));
+		Shelf.addProduct(shelfProducts, new ProductWithDiscount("Oreo",15, 100));
 		
 		
 		//SE REALIZA UNA NUEVA COMPRA
-		Compra compraNueva = new Compra(new TarjetaCoti());		
-		compraNueva.AgregarProducto(new ProductoConDesc(eCereales.Trigo,1));
-		compraNueva.AgregarProducto(new ProductoConDesc(eGranos.Maiz,3));
-		compraNueva.AgregarProducto(new ProductoSinDesc(eGranos.Arvejas,3));
-		compraNueva.AgregarProducto(new ProductoSinDesc(eGalletas.Oreo,4));
-		
+		Order compraNueva = new Order(new CotiCard());		
+		compraNueva.addProduct(shelfProducts, new ProductWithDiscount("Trigo", 15, 1));
+		compraNueva.addProduct(shelfProducts, new ProductWithDiscount("Maiz", 15, 3));
+		compraNueva.addProduct(shelfProducts, new ProductWithoutDiscount("Arvejas",20, 3));
+		compraNueva.addProduct(shelfProducts, new ProductWithoutDiscount("Oreo",26, 4));
+		 
 		compraNueva.Pagar();
 		
 		
@@ -38,11 +32,11 @@ public class main {
 		
 		
 		//SE REALIZA OTRA COMPRA
-		Compra otraCompra = new Compra(new TarjetaDebito());
+		Order otraCompra = new Order(new DebitCard());
 		
-		otraCompra.AgregarProducto(new ProductoConDesc(eGranos.Porotos,5));
-		otraCompra.AgregarProducto(new ProductoSinDesc(eGalletas.Toddy,10));
-		otraCompra.AgregarProducto(new ProductoSinDesc(eCereales.Trigo,36));
+		otraCompra.addProduct(shelfProducts, new ProductWithDiscount("Porotos",36, 5));
+		otraCompra.addProduct(shelfProducts, new ProductWithoutDiscount("Toddy",19, 10));
+		otraCompra.addProduct(shelfProducts, new ProductWithoutDiscount("Trigo",16, 36));
 		
 		
 		otraCompra.Pagar();

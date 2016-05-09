@@ -6,7 +6,7 @@ public class Cliente {
 
 		private String nombre;
 		private Integer edad;
-		private ArrayList<Compra> listaCompras;
+		private ArrayList<Order> listaCompras;
 		
 		
 		
@@ -26,16 +26,16 @@ public class Cliente {
 			this.edad = edad;
 		}
 
-		public ArrayList<Compra> getListaCompras() {
+		public ArrayList<Order> getListaCompras() {
 			return listaCompras;
 		}
 
-		public void setListaCompras(ArrayList<Compra> listaCompras) {
+		public void setListaCompras(ArrayList<Order> listaCompras) {
 			this.listaCompras = listaCompras;
 		}
 
 	public Cliente(){
-		this.listaCompras = new ArrayList<Compra>();
+		this.listaCompras = new ArrayList<Order>();
 	}
 		
 	public Cliente(String nombre, Integer edad){
@@ -44,7 +44,7 @@ public class Cliente {
 		this.edad = edad;
 	}
 		
-	public void AgregarAListaCompras(Compra a){
+	public void AgregarAListaCompras(Order a){
 		this.listaCompras.add(a);
 		System.out.println(this.nombre+ " ha agregado una compra a su carrito.");
 	}
@@ -53,7 +53,7 @@ public class Cliente {
 	public void Mostrar(){
 		System.out.println("Nombre: "+this.nombre);
 		System.out.println("Edad: "+ this.edad);
-		for (Compra compras : listaCompras) {
+		for (Order compras : listaCompras) {
 			compras.MostrarContenido();
 		}
 	}
