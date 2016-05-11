@@ -35,8 +35,8 @@ public class CotiTesting {
 		testingString= "Producto De Prueba";
 		cotiCard = new CotiCard();
 		stockDeCoti = new Shelf();
-		testingProductDisc = new ProductWithDiscount(testingString, 20, testingInterg);
-		testingProductWithoutDisc = new ProductWithoutDiscount(testingString, 50, 100);
+		testingProductDisc = new ProductWithDiscount(1, testingString, 20, testingInterg);
+		testingProductWithoutDisc = new ProductWithoutDiscount(2, testingString, 50, 100);
 		productList.add(testingProductDisc);
 		productList.add(testingProductWithoutDisc);
 	
@@ -123,8 +123,6 @@ public class CotiTesting {
 	 */ 
 		assertTrue(newOrderWithCotiPayment.addProduct(stockDeCoti, testingProductDisc));
 	}
-	
-	
 	
 
 	

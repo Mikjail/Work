@@ -6,7 +6,7 @@ public class Shelf {
 		Product nuevo;
 		
 		//Properties
-		private  HashMap<String, Product> productList = new HashMap<>();
+		private  HashMap<Integer, Product> productList = new HashMap<>();
 	
 	
 		
@@ -15,20 +15,20 @@ public class Shelf {
 		
 		public static Boolean addProduct(Shelf newShelf, Product product){
 			
-			if(newShelf.productList.containsKey(product.getDescripcion())){
-				newShelf.productList.get(product.getDescripcion()).addProduct(product.getCantidad());
+			if(newShelf.productList.containsKey(product.getIdProduct())){
+				newShelf.productList.get(product.getIdProduct()).addProduct(product.getCantidad());
 				System.out.println("Se Agrego "+product.getDescripcion()+" al carrito de compras!");
 			}
 			else {
-				newShelf.productList.put(product.getDescripcion(),product);
-				System.out.println("Se Agrego " + newShelf.productList.get(product.getDescripcion()).getCantidad() + " " + product.getDescripcion()+" al carrito de compras!");
+				newShelf.productList.put(product.getIdProduct(),product);
+				System.out.println("Se Agrego " + newShelf.productList.get(product.getIdProduct()).getCantidad() + " " + product.getIdProduct()+" al carrito de compras!");
 			}
 			return true;
 		}
 		
 		public static boolean removeProduct(Shelf newShelf,Product product){
 			
-			if(newShelf.productList.containsKey(product.getDescripcion())){
+			if(newShelf.productList.containsKey(product.getIdProduct())){
 				newShelf.productList.remove(product);
 				System.out.println("El producto fue eliminado y quedan "+ product.getDescripcion()+"del mismo tipo en el Carrito!");
 			}
@@ -41,11 +41,11 @@ public class Shelf {
 		
 		
 		public static int HowMany(Shelf newShelf, Product product){
-			if(newShelf.productList.containsKey(product.getDescripcion())){
-				return newShelf.productList.get(product.getDescripcion()).getCantidad();
+			if(newShelf.productList.containsKey(product.getIdProduct())){
+				return newShelf.productList.get(product.getIdProduct()).getCantidad();
 			}
 			else{
-				System.out.println("There is no "+ newShelf.productList.get(product.getDescripcion())+"in stock");
+				System.out.println("There is no "+ newShelf.productList.get(product.getIdProduct())+"in stock");
 				return 0;
 			}
 		}

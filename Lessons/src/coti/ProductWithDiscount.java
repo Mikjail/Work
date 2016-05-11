@@ -2,8 +2,8 @@ package coti;
 
 public class ProductWithDiscount extends Product{
 
-	public ProductWithDiscount(String descripcion,float price, Integer cantidad) {
-		super(descripcion, price,  cantidad);
+	public ProductWithDiscount(Integer idProduct, String descripcion,float price, Integer cantidad) {
+		super(idProduct, descripcion, price,  cantidad);
 		System.out.println("usted creo un "+ descripcion.toString());
 		// TODO Auto-generated constructor stub
 	}
@@ -60,6 +60,17 @@ public class ProductWithDiscount extends Product{
 	public void removeProduct(int cantidad) {
 		// TODO Auto-generated method stub
 		super.cantidad -= cantidad;
+	}
+
+	@Override
+	public Integer getIdProduct() {
+		return super.idProduct;
+	}
+
+	@Override
+	public void setIdProduct(Integer idProduct) {
+		super.idProduct = idProduct;
+		
 	}
 
 }
